@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Ético o No Ético? — Dinámica Boeing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+<div id="s-intro" class="screen active" style="padding: 4px 0 24px">
+  <h1>¿Ético o no ético?</h1>
+  <p class="subtitle">Responde 8 dilemas reales del mundo corporativo. Sin nombres, sin contexto — solo tu criterio ético. Al finalizar se revela el caso que los inspiró.</p>
+  <div class="card">
+    <p style="font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:10px">Cómo funciona</p>
+    <div class="step-row">
+      <div class="step-item"><div class="step-num">1</div><p class="step-text">Lee el escenario y vota: Ético, No ético, o Zona gris</p></div>
+      <div class="step-item"><div class="step-num">2</div><p class="step-text">Cada pregunta revela la perspectiva ética correcta</p></div>
+      <div class="step-item"><div class="step-num">3</div><p class="step-text">Al final, se revela el caso real que está detrás de todos los escenarios</p></div>
+    </div>
+  </div>
+  <button class="next-btn" onclick="startGame()">Comenzar el juego</button>
+</div>
+
+<div id="s-game" class="screen" style="padding: 4px 0 24px">
+  <div class="step-label" id="step-label">Pregunta 1 de 8</div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog" style="width:0%"></div></div>
+  <div class="q-card">
+    <div id="q-tag"></div>
+    <p class="q-text" id="q-text"></p>
+    <p class="q-context" id="q-context"></p>
+  </div>
+  <div class="vote-row">
+    <button class="vote-btn" id="btn-yes" onclick="vote('yes')">Ético</button>
+    <button class="vote-btn" id="btn-no" onclick="vote('no')">No ético</button>
+  </div>
+  <button class="vote-btn selected-gray" id="btn-gray" style="width:100%;margin-bottom:16px" onclick="vote('gray')">Zona gris — depende del contexto</button>
+  <div id="reveal-zone" style="display:none">
+    <div class="reveal-card" id="reveal-card">
+      <p class="reveal-title" id="reveal-title"></p>
+      <p class="reveal-body" id="reveal-body"></p>
+    </div>
+    <button class="next-btn" id="next-btn" onclick="nextQ()">Siguiente pregunta</button>
+  </div>
+</div>
+
+<div id="s-results" class="screen" style="padding: 4px 0 24px">
+  <h2>Resultados</h2>
+  <p class="subtitle">Tu razonamiento ético frente a cada dilema</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val" id="r-correct" style="color:#3B6D11">—</div><div class="stat-lbl">Alineados</div></div>
+    <div class="stat"><div class="stat-val" id="r-gray">—</div><div class="stat-lbl">Zona gris</div></div>
+    <div class="stat"><div class="stat-val" id="r-wrong" style="color:#A32D2D">—</div><div class="stat-lbl">Divergentes</div></div>
+  </div>
+  <div id="result-list" style="margin-bottom:20px"></div>
+  <div class="reveal-section">
+    <p class="section-micro">El caso real detrás de todos los escenarios</p>
+    <p class="reveal-headline">Crisis del Boeing 737 MAX — 2018–2019</p>
+    <p class="reveal-detail" style="margin-bottom:10px">Cada uno de estos dilemas está tomado directamente de decisiones reales tomadas por ingenieros, ejecutivos y reguladores de una de las empresas aeronáuticas más grandes del mundo entre 2011 y 2019.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-val" style="color:#A32D2D">346</div><div class="stat-lbl">Vidas perdidas</div></div>
+      <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">Accidentes fatales</div></div>
+      <div class="stat"><div class="stat-val">$24B+</div><div class="stat-lbl">Demandas y multas</div></div>
+    </div>
+    <p class="reveal-detail">Los escenarios que respondiste — ocultar información al regulador, priorizar velocidad sobre seguridad, silenciar a ingenieros que alertaron sobre fallas — no fueron hipotéticos. Fueron las decisiones reales que llevaron a dos aviones a estrellarse con 346 personas a bordo.</p>
+  </div>
+  <button class="next-btn" style="margin-top:16px" onclick="resetGame()">Jugar de nuevo</button>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
